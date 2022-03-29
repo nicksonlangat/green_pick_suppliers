@@ -171,7 +171,7 @@ export default {
       const config = {
         headers: { Authorization: `Token ${this.user.access_token}` }
     };
-          return axios.get('http://3.143.144.168/orders/').then(res=>{
+          return axios.get('http://3.143.144.168/orders/', config).then(res=>{
             console.log(res)
         this.orders=res.data
         console.log(this.orders)

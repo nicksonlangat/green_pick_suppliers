@@ -225,7 +225,7 @@ export default {
         headers: { Authorization: `Token ${this.user.access_token}` }
     };
     // http://3.143.144.168/orders/
-          return axios.get('http://localhost:8000/orders/', config).then(res=>{
+          return axios.get('http://3.143.144.168/orders/', config).then(res=>{
             console.log(res)
         this.orders=res.data
         console.log(this.orders)

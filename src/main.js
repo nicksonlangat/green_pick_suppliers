@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import './index.css'
 import moment from 'moment'
+import 'flowbite'
 
 Vue.config.productionTip = false
 Vue.filter('formatDate', function(value) {

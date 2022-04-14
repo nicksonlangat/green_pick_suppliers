@@ -5,7 +5,11 @@
             <div class="container px-6 py-4 mx-auto lg:flex lg:justify-between lg:items-center">
                 <div class="flex items-center justify-between">
                     <div>
-                         <router-link class="text-2xl font-bold text-gray-800 dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300" to="/">GREEN PICK</router-link>
+                        <a href="/" class="flex items-center">
+      <img src="../assets/logo1.png" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
+      <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"></span>
+  </a>
+                         <!-- <router-link class="text-2xl font-bold text-gray-800 dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300" to="/">GREEN PICK</router-link> -->
                     </div>
                     
                     <!-- Mobile menu button -->

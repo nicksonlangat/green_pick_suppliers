@@ -11,13 +11,8 @@
 		</div>
 		<div class="flex items-center justify-between">
 			<div class="flex bg-gray-50 items-center p-2 rounded-md">
-				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20"
-					fill="currentColor">
-					<path fill-rule="evenodd"
-						d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-						clip-rule="evenodd" />
-				</svg>
-				<input v-model="name" class="bg-gray-50 outline-none ml-1 block " type="text" name="" id="" placeholder="search products...">
+				
+				<input v-model="name" class="rounded ml-1 block " type="text" name="" id="" placeholder="search products...">
           </div>
 				<div class="lg:ml-40 ml-10 space-x-8">
 					<button class="bg-gray-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">PDF Export products</button>
@@ -55,6 +50,10 @@
 									class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
 									Availability
 								</th>
+								<th
+									class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+									Action
+								</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -73,9 +72,12 @@
 									<p class="text-gray-900 whitespace-no-wrap">{{prod.unit_of_measurement}}</p>
 								</td>
 								<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-									<p class="text-gray-900 whitespace-no-wrap">
+									<p v-if="!editable" class="text-gray-900 whitespace-no-wrap">
 										{{prod.price}}
 									</p>
+									<form v-if="editable">
+										<input v-model="newPrice" placeholder="New price..." type="text" id="small-input" class="block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+									</form>
 								</td>
 								<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
 									<p class="text-gray-900 whitespace-no-wrap">
@@ -95,6 +97,11 @@
 									<span class="relative" v-if="prod.is_available == true">Yes</span>
 									</span>
 								</td>
+								<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+									<button v-if="!editable" @click="edit(prod.id)" type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">Edit</button>
+								<button v-if="editable" @click="commit(prod.id)" type="button" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Save</button>
+								<button v-if="!editable" @click="deleteProd(prod.id)" type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Delete</button>
+								</td>
 							</tr>	
 						</tbody>
 					</table>
@@ -113,8 +120,10 @@ export default {
   data(){
     return{
         name:'',
-      user:null,
-      products:[],
+		user:null,
+		products:[],
+		editable:false,
+		newPrice:'',
     }
   },
   computed: {
@@ -136,7 +145,29 @@ export default {
         console.log(error)
       })
     },
-},
+	edit(id){
+		this.editable = true
+		console.log('edited', id)
+	},
+	deleteProd(id){
+	axios.delete(`http://3.143.144.168/products/${id}/`).then(res=>{
+				this.getProducts()
+				}).catch(error=>{
+				console.log(error)
+				})
+	},
+	commit(id){
+		axios.patch(`http://3.143.144.168/products/${id}/`,
+				{
+			"price": this.newPrice
+		}).then(res=>{
+				this.getProducts()
+				this.editable = false
+				}).catch(error=>{
+				console.log(error)
+				})
+			}
+		},
 created(){
     this.user =JSON.parse(localStorage.getItem('loggedUser'))
      this.getProducts()

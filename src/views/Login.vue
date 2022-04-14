@@ -18,8 +18,8 @@
     </div>
     <br>
     <div class="w-full max-w-md p-6 m-auto bg-white rounded-md shadow-md dark:bg-gray-800">
-       <img style="margin-right:auto; margin-left:auto;" src="../assets/weza.jpeg" alt="">
-        <h1 class="text-3xl font-semibold text-center text-gray-700 dark:text-white">GREEN PICK</h1>
+       <img style="margin-right:auto; margin-left:auto; height:200px;" src="../assets/logo2.png" alt="">
+       
 
         <form class="mt-6">
             <div>

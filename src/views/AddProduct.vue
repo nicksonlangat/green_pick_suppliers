@@ -125,7 +125,7 @@ export default {
         headers: { Authorization: `Token ${this.user.access_token}` }
     };
           axios.post('http://3.143.144.168/products/', data, config).then(res=>{
-              this.$router.push({ name: "Home"})
+              this.$router.push({ name: "Products"})
           }).catch(error=>{
               console.log(error)
           })

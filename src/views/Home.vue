@@ -145,9 +145,12 @@
                   
                 <!-- <button v-if="isSuperuser" @click="deleteOrd(ord.id)" type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Delete</button> -->
 								</td>
+
+                
               </tr>
             </tbody>
           </table>
+          
         </div>
       </div>
     </div>
@@ -181,6 +184,10 @@ export default {
     },
   },
   methods:{
+    onChangePage(pageOfItems) {
+            // update page of items
+            this.pageOfItems = pageOfItems;
+        },
     getOrders(){
       const config = {
         headers: { Authorization: `Token ${this.user.access_token}` }

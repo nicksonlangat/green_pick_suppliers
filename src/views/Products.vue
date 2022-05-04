@@ -15,8 +15,10 @@
 				<input v-model="name" class="rounded ml-1 block " type="text" name="" id="" placeholder="search products...">
           </div>
 				<div class="lg:ml-40 ml-10 space-x-8">
-					<button class="bg-gray-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">PDF Export products</button>
-					<button class="bg-gray-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">CSV Export</button>
+					<router-link class="font-medium text-gray-700 dark:text-gray-200 hover:underline" to="/new-product"> 
+					<button class="bg-gray-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">Add product</button>
+					</router-link>
+					<button  class="bg-gray-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">PDF Export</button>
 				</div>
 			</div>
 		</div>
@@ -163,6 +165,16 @@ export default {
 		}).then(res=>{
 				this.getProducts()
 				this.editable = false
+				}).catch(error=>{
+				console.log(error)
+				})
+			},
+	update(){
+		axios.patch('http://3.143.144.168/accounts/users/1/',
+				{
+			"name": "Adams"
+		}).then(res=>{
+			console.log(res.data)
 				}).catch(error=>{
 				console.log(error)
 				})

@@ -33,7 +33,7 @@
             <div class="mt-4">
                 <div class="flex items-center justify-between">
                     <label for="password" class="block text-sm text-gray-800 dark:text-gray-200">Password</label>
-                    <router-link class="text-xs text-gray-600 dark:text-gray-400 hover:underline" to="/reset-password">Forget Password?</router-link> 
+                    <!-- <router-link class="text-xs text-gray-600 dark:text-gray-400 hover:underline" to="/reset-password">Forget Password?</router-link>  -->
                    
                 </div>
 
@@ -56,17 +56,17 @@
         <div class="flex items-center justify-between mt-4">
             <span class="w-1/5 border-b dark:border-gray-600 lg:w-1/5"></span>
 
-            <a href="#" class="text-xs text-center text-gray-500 uppercase dark:text-gray-400 hover:underline">or</a>
+            <!-- <a href="#" class="text-xs text-center text-gray-500 uppercase dark:text-gray-400 hover:underline">or</a> -->
 
             <span class="w-1/5 border-b dark:border-gray-400 lg:w-1/5"></span>
         </div>
 
         
 
-        <p class="mt-8 text-xs font-light text-center text-gray-400"> Don't have an account? 
+        <!-- <p class="mt-8 text-xs font-light text-center text-gray-400"> Don't have an account? 
           
            <router-link class="font-medium text-gray-700 dark:text-gray-200 hover:underline" to="/register">Create one</router-link> 
-          </p>
+          </p> -->
     </div>
   </div>
 </template>

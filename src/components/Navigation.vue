@@ -32,11 +32,15 @@
                         <router-link class="block font-medium text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 hover:underline" to="/restaurants">RESTAURANTS</router-link> 
                         
 
-<router-link class="font-medium text-gray-700 dark:text-gray-200 hover:underline" to="/new-product"> 
+<router-link  v-if="!loggedIn" class="font-medium text-gray-700 dark:text-gray-200 hover:underline" to="/login"> 
  <button class="flex items-center px-5 py-2 text-sm font-medium tracking-wide text-center text-white capitalize transition-colors duration-200 transform bg-gray-700 rounded-lg hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
-                          ADD PRODUCT
+                          Login
                         </button>
 </router-link> 
+
+ <button v-if="loggedIn" @click="logout" class="flex items-center px-5 py-2 text-sm font-medium tracking-wide text-center text-white capitalize transition-colors duration-200 transform bg-red-700 rounded-lg hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
+                          Logout
+                        </button>
             
                        
                     </div>
@@ -45,3 +49,25 @@
         </nav>
     </header>
 </template>
+<script>
+export default {
+    data(){
+        return{
+            loggedIn:false,
+        }
+    },
+    methods:{
+        logout(){
+            localStorage.removeItem('loggedUser')
+            console.log('logged out')
+            this.$router.push({ name: "Login"})
+        }
+    },
+    created(){
+        if(localStorage.getItem('loggedUser')!=null){
+            this.loggedIn=true
+        }
+        
+    }
+}
+</script>

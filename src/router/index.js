@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Hero from '../views/Hero.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Reset from '../views/Reset.vue'
@@ -13,6 +14,11 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
+    name: 'Hero',
+    component: Hero
+  },
+  {
+    path: '/orders',
     name: 'Home',
     component: Home
   },
@@ -38,12 +44,12 @@ const routes = [
   },
   {
     path: '/products',
-    name: 'products',
+    name: 'Products',
     component: Products
   },
   {
     path: '/restaurants',
-    name: 'restaurants',
+    name: 'Restaurants',
     component: Restaurants
   },
   {
@@ -62,7 +68,8 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  routes
+  routes,
+  mode: 'history'
 })
 
 export default router

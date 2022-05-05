@@ -1,6 +1,7 @@
 <template>
   <div>
     <br>
+    <br><br>
     <div class="w-full max-w-md p-6 m-auto bg-white rounded-md shadow-md dark:bg-gray-800">
       <img style="margin-right:auto; margin-left:auto; height:200px;" src="../assets/logo2.png" alt="">
        
@@ -17,7 +18,7 @@
               </div>
 
                <div>
-                <label for="email" class="block text-sm text-gray-800 dark:text-gray-200">First name</label>
+                <label for="email" class="block text-sm text-gray-800 dark:text-gray-200">Full name</label>
                 <input
                   name="first_name"
                   v-model="user.name"
@@ -26,7 +27,7 @@
               
               </div>
                <div>
-                <label for="password" class="block text-sm text-gray-800 dark:text-gray-200">Password</label>
+                <label for="password" class="block text-sm text-gray-800 dark:text-gray-200">Phone Number</label>
                 <input
                   name="phone_number"
                   v-model="user.phone_number"
@@ -34,11 +35,37 @@
                   class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
               
               </div>
+              <div>
+                <label for="password" class="block text-sm text-gray-800 dark:text-gray-200">Role</label>
+                <select
+                  name="password"
+                  v-model="user.role"
+                  type="text"
+                  class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md
+                   dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500
+                    dark:focus:border-blue-500 focus:outline-none focus:ring">
+                    <option value="Executive chef">Executive chef</option>
+                  
+                    </select>
+              
+              </div>
+              <div>
+                <label for="password" class="block text-sm text-gray-800 dark:text-gray-200">Restaurant</label>
+                <select
+                 
+                  v-model="user.restaurant_branch"
+                  type="text"
+                  class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border
+                   rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                   <option value="1">The Social House</option>
+                   </select>
+              
+              </div>
 
               <div>
-                <label for="password" class="block text-sm text-gray-800 dark:text-gray-200">Confirm Password</label>
+                <label for="password" class="block text-sm text-gray-800 dark:text-gray-200">Password</label>
                 <input
-                  name="password"
+                  
                   v-model="user.password"
                   type="password"
                   class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
@@ -58,14 +85,14 @@
         <div class="flex items-center justify-between mt-4">
             <span class="w-1/5 border-b dark:border-gray-600 lg:w-1/5"></span>
 
-            <a href="#" class="text-xs text-center text-gray-500 uppercase dark:text-gray-400 hover:underline">or</a>
+            <!-- <a href="#" class="text-xs text-center text-gray-500 uppercase dark:text-gray-400 hover:underline">or</a> -->
 
             <span class="w-1/5 border-b dark:border-gray-400 lg:w-1/5"></span>
         </div>
 
-        <p class="mt-8 text-xs font-light text-center text-gray-400"> Have an account? 
+        <!-- <p class="mt-8 text-xs font-light text-center text-gray-400"> Have an account? 
           <router-link class="font-medium text-gray-700 dark:text-gray-200 hover:underline" to="/login">Log In</router-link> 
-        </p>
+        </p> -->
     </div>
   </div>
 </template>
@@ -84,6 +111,8 @@ export default {
         name:'',
         phone_number:'',
         password:'',
+        role:"",
+        restaurant_branch:"",
        
       }
   }
@@ -96,13 +125,15 @@ export default {
                 name:this.user.name,
                 phone_number:this.user.phone_number,
                 password:this.user.password,
-                is_superuser:true
+                is_superuser:true,
+                role:this.user.role,
+                restaurant_branch:this.user.restaurant_branch
           }
           e.preventDefault();
           console.log(data)
-          return axios.post('http://3.143.144.168/accounts/register/',data).then(res=>{
+          return axios.post('http://3.143.144.168/accounts/register',data).then(res=>{
               console.log(res)
-              this.$router.push({ name: "Login"})
+              this.$router.push({ name: "Home"})
           }).catch(error=>{
               console.log(error)
           })

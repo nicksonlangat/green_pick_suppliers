@@ -102,10 +102,11 @@
                   <div class="text-sm text-gray-900"> {{ord.order_number}}</div>
                 </td>
                 <td class="px-6 py-4 ">
-                  <div class="text-sm text-gray-900"> {{ord.restaurant}}</div>
+                  <div v-if="ord.restaurant" class="text-sm text-gray-900"> {{ord.restaurant}}</div>
+                  <div v-else class="text-sm text-gray-900"> The Social House</div>
                 </td>
                 <td class="px-6 py-4 ">
-                  <div class="text-sm text-gray-900"> {{ord.total}}</div>
+                  <div class="text-sm text-gray-900"> {{ord.totals}}</div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="flex items-center">
@@ -123,7 +124,8 @@
                   <div class="text-sm text-gray-900"> {{loan.customer_credit_worthiness}}</div>
                 </td> -->
                 <td class="px-6 py-4 ">
-                  <div class="text-sm text-gray-900"> {{ord.delivery_address}}</div>
+                  <div v-if="ord.delivery_address"  class="text-sm text-gray-900"> {{ord.delivery_address}}</div>
+                  <div v-else class="text-sm text-gray-900"> 154 James Gichuru Road, Nairobi</div>
                 </td>
                 <td class="px-6 py-4 ">
                   <div class="text-sm text-gray-900">  {{ord.payment_method}}</div>

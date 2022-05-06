@@ -95,7 +95,7 @@
               <tr v-for="ord of filteredOrders" :key="ord.id">
                 <td class="px-6 py-4 ">
                   <div class="text-sm text-gray-900"> 
-                    {{moment(ord.date_requested).format('DD.MM.YYYY')}}
+                    {{moment(ord.placed_on).format('DD.MM.YYYY')}}
                     </div>
                 </td>
                 <td class="px-6 py-4 ">

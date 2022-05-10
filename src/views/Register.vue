@@ -2,14 +2,15 @@
   <div>
     <br>
     <br><br>
-    <div class="w-full max-w-md p-6 m-auto bg-white rounded-md shadow-md dark:bg-gray-800">
-      <img style="margin-right:auto; margin-left:auto; height:200px;" src="../assets/logo2.png" alt="">
+    <div class="w-full max-w-lg p-6 m-auto bg-white rounded-md shadow-md dark:bg-gray-800">
+     <h1 class="text-center font-black">Add New Executive Chef</h1>
        
         
         <form  class="mt-6">
               <div>
                 <label for="email" class="block text-sm text-gray-800 dark:text-gray-200">Email</label>
                 <input
+                placeholder="Unique email address"
                   name="email"
                   v-model="user.email"
                   type="email"
@@ -67,7 +68,7 @@
               <div>
                 <label for="password" class="block text-sm text-gray-800 dark:text-gray-200">Password</label>
                 <input
-                  
+                  placeholder="8 or more alphanumeric characters"
                   v-model="user.password"
                   type="password"
                   class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">

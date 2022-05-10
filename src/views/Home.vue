@@ -5,34 +5,45 @@
   
   <div class="container my-12 mx-auto px-4 md:px-12">
    
-<section class="grid gap-6 my-6 md:grid-cols-3">
-            <div class="p-6 bg-white shadow rounded-2xl">
-                <dl class="space-y-2">
-                    <dt class="text-sm font-medium text-gray-500">Orders </dt>
-
-                    <dd class="text-2xl font-light md:text-6xl">{{orders.length}} orders</dd>
-                </dl>
-            </div>
-
-            <div class="p-6 bg-white shadow rounded-2xl">
-                <dl class="space-y-2">
-                    <dt class="text-sm font-medium text-gray-500">Fulfilled Orders</dt>
-
-                    <dd class="text-5xl font-light md:text-6xl">5 orders </dd>
-                </dl>
-            </div>
-
-            <div class="p-6 bg-white shadow rounded-2xl">
-                <dl class="space-y-2">
-                    <dt class="text-sm font-medium text-gray-500">Total restaurants</dt>
-
-                    <dd class="text-5xl font-light md:text-6xl">1 restaurant</dd>
-
-                    
-                </dl>
-            </div>
-            
-        </section>
+<section class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div class="flex items-center p-8 bg-green-400 shadow rounded-lg">
+          <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-blue-600 bg-blue-100 rounded-full mr-6">
+            10
+          </div>
+          <div>
+            <span class="block text-2xl font-bold">Orders</span>
+            <span class="block text-gray-500">Placed</span>
+          </div>
+        </div>
+        <div class="flex items-center p-8 bg-indigo-900 shadow rounded-lg">
+          <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-green-600 bg-green-100 rounded-full mr-6">
+            10
+          </div>
+          <div>
+            <span class="block text-2xl font-bold">Products</span>
+            <span class="block text-gray-500">Available</span>
+          </div>
+        </div>
+        <div class="flex items-center p-8 bg-blue-300 shadow rounded-lg">
+          <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-red-600 bg-red-100 rounded-full mr-6">
+            14
+          </div>
+          <div>
+            <span class="inline-block text-2xl font-bold">Restaurants</span>
+          
+            <span class="block text-gray-500">Onboarded</span>
+          </div>
+        </div>
+        <div class="flex items-center p-8 bg-gray-900 shadow rounded-lg">
+          <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-blue-600 bg-blue-100 rounded-full mr-6">
+            89
+          </div>
+          <div>
+            <span class="block text-2xl font-bold">Users</span>
+            <span class="block text-gray-500">Active</span>
+          </div>
+        </div>
+      </section>
         <!-- Column -->
         <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
         </div>
@@ -111,7 +122,7 @@
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="flex items-center">
                     <div class="ml-4">
-                      <div v-if="!ord.is_fulfilled" class="text-sm  font-medium text-yellow-500">
+                      <div v-if="!ord.is_fulfilled" class="text-sm  font-medium text-indigo-600">
                         PENDING
                       </div>
                       <div v-else class="text-sm  font-medium text-green-500">
@@ -143,9 +154,9 @@
                
                 
                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                  <a @click="fullfil(ord.id)" class="text-green-600 hover:text-green-900">Mark delivered</a>
-                  
-                <!-- <button v-if="isSuperuser" @click="deleteOrd(ord.id)" type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Delete</button> -->
+                  <a @click="fullfil(ord.id)" class="text-green-600 hover:text-green-900">Delivered</a>
+                  |
+                <a v-if="isSuperuser" @click="deleteOrd(ord.id)" class="text-red-600"  >Delete</a>
 								</td>
 
                 

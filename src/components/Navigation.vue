@@ -28,7 +28,8 @@
                         <!-- <a class="block font-medium text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 hover:underline" href="#">MY TICKETS</a> -->
                         <router-link class="block font-medium text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 hover:underline" to="/products">PRODUCTS</router-link> 
                         
-                        <router-link class="block font-medium text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 hover:underline" to="/">ORDERS</router-link> 
+                        <router-link class="block font-medium text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 hover:underline" to="/orders
+                        ">ORDERS</router-link> 
                         <router-link class="block font-medium text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 hover:underline" to="/restaurants">RESTAURANTS</router-link> 
                         
 

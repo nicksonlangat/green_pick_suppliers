@@ -50,15 +50,17 @@
               
               </div>
               <div>
-                <label for="password" class="block text-sm text-gray-800 dark:text-gray-200">Restaurant</label>
+                <label  class="block text-sm text-gray-800 dark:text-gray-200">Restaurant</label>
                 <select
                  
                   v-model="user.restaurant_branch"
                   type="text"
                   class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border
                    rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
-                   <option value="1">The Social House</option>
-                   </select>
+                  <option v-for="cat of rests" :key="cat.id" :value="cat.id">
+            {{cat.name}}
+        </option>
+                </select>
               
               </div>
 
@@ -105,6 +107,7 @@ export default {
   data() {
     return {
       submitted: false,
+      rests:[],
       message: '',
       user:{
         email:'',
@@ -119,6 +122,12 @@ export default {
   },
 
   methods: {
+    getRests(){
+      return axios.get('http://3.143.144.168/restaurants').then(res=>{
+        this.rests = res.data
+        console.log(this.rests)
+      })
+    },
       registerUser(e){
           const data={
                 email: this.user.email,
@@ -138,6 +147,9 @@ export default {
               console.log(error)
           })
       },
+  },
+  mounted(){
+    this.getRests()
   }
 
 

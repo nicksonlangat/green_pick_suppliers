@@ -1,9 +1,22 @@
 <template>
     <!-- Component Code -->
 
-<div class="grid bg-gray-200 grid-flow-col grid-rows-2 sm:grid-rows-1 sm:grid-cols-2 gap-4">
+<div >
+  <section class="relative h-screen flex flex-col items-center justify-center text-center text-white py-0 px-3">
+    <div class="video-docker absolute top-0 left-0 w-full h-full overflow-hidden">
+        <video class="min-w-full min-h-full absolute object-cover" src="../assets/vid.mp4" type="video/mp4" autoplay muted loop></video>
+    </div>
+    <div class="video-content space-y-2">
+        <h1 class="font-light text-6xl">Welcome to GreenPick</h1>
+        <div class="rounded-md shadow">
+              <router-link to="/orders" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-gray-900 hover:bg-gray-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
+                Get started
+              </router-link>
+            </div>
+    </div>
+</section>
   
-  <div class="flex items-center justify-center">
+  <!-- <div class="flex items-center justify-center">
     <main class="max-w-screen-xl px-4 lg:px-16">
         <div class="text-left">
           <h2 class="text-4xl tracking-tight leading-10 font-extrabold text-orange-500 sm:text-5xl sm:leading-none md:text-6xl">
@@ -32,7 +45,7 @@
   <div class="w-full object-cover h-72 lg:w-full md:h-screen bg-cover bg-center"
   
   :style="{ backgroundImage: 'url(' + require('@/assets/tt.jpg') + ')' }"></div>
-  
+   -->
 </div>
 
 
@@ -43,5 +56,23 @@
 body {
   font-family: 'Poppins', sans-serif !important;
 }
+.video-docker video {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.video-docker::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
 
+.video-content {
+  z-index: 2;
+}
 </style>

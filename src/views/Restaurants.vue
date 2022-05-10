@@ -8,10 +8,10 @@
         </h5>
         <p class="text-sm font-normal text-gray-500 dark:text-gray-400">A list of restaurants we have patnered with.</p>
         <ul class="my-4 space-y-3">
-            <li>
+            <li v-for="cat of rests" :key="cat.id">
                 <a href="#" class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
-                    <img src="../assets/so.jpg" alt="">
-                    <span class="flex-1 ml-3 whitespace-nowrap">The Social House Nairobi</span>
+                    <img class="object-cover h-24 w-48" :src="cat.cover_image" alt="">
+                    <span class="flex-1 ml-3 whitespace-nowrap">{{cat.name}}</span>
                     <span class="inline-flex items-center justify-center px-2 py-0.5 ml-3 text-xs font-medium text-gray-500 bg-gray-200 rounded dark:bg-gray-700 dark:text-gray-400">Popular</span>
                 
 <div class="flex items-center">
@@ -33,8 +33,27 @@
 
 <script>
 import Navigation from '@/components/Navigation.vue'
+import axios from 'axios'
 export default {
   components:{Navigation},
+
+  data() {
+    return {
+      rests:[],
+  }
+  },
+
+  methods: {
+    getRests(){
+      return axios.get('http://3.143.144.168/restaurants').then(res=>{
+        this.rests = res.data
+        console.log(this.rests)
+      })
+    },
+  },
+  mounted(){
+    this.getRests()
+  }
 
 }
 </script>

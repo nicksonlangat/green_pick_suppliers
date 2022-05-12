@@ -6,7 +6,7 @@
     <div class="container flex flex-col flex-wrap items-center justify-between py-5 mx-auto md:flex-row max-w-7xl">
         <div class="relative flex flex-col md:flex-row">
             <router-link to="/orders" class="flex items-center mb-5 font-medium text-gray-900 lg:w-auto lg:items-center lg:justify-center md:mb-0">
-                <span class="mx-auto text-xl font-black leading-none text-green-600 select-none">GreenPick<span class="text-indigo-600">.</span>store</span>
+              <img src="../assets/logo1.png" class="mr-3 h-6 sm:h-9" alt="Logo" />
             </router-link>
             <nav class="flex flex-wrap items-center mb-5 text-base md:mb-0 md:pl-8 md:ml-8 md:border-l md:border-gray-200">
                 <router-link to="/orders" class="mr-5 font-medium leading-6 text-blue-600 hover:text-gray-900">Home</router-link>
@@ -17,50 +17,23 @@
         <div class="inline-flex items-center ml-5 space-x-6 lg:justify-end">
             
             <router-link to="/login" class="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600">
-                Login
+                Get Started
             </router-link>
         </div>
     </div>
 </section>
 
 <!-- Section 2 -->
-<section class="px-2 py-32 bg-white md:px-0">
-  <div class="container items-center max-w-6xl px-8 mx-auto xl:px-5">
+<section class=" py-0 bg-white md:px-0">
+  <div class="container items-center max-w-8xl px-8 mx-auto xl:px-5">
     <div class="flex flex-wrap items-center sm:-mx-3">
-      <div class="w-full md:w-1/2 md:px-3">
-        <div class="w-full pb-6 space-y-6 sm:max-w-md lg:max-w-lg md:space-y-4 lg:space-y-8 xl:space-y-9 sm:pr-5 lg:pr-0 md:pb-0">
-          <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl">
-            <span class="block xl:inline">At</span>
-            <br>
-            <span class="block text-green-600 xl:inline">GreenPick.</span>
-          </h1>
-          <p class="mx-auto text-base text-gray-500 sm:max-w-md lg:text-xl md:max-w-3xl">
-            We are on a mission to create a sustainable future where we are empowering farmers to sell their produce directly to leading retail outlets.
-           </p>
-          <div class="relative flex flex-col sm:flex-row sm:space-x-4">
-            <router-link to="/orders" class="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-blue-600 rounded-md sm:mb-0 hover:bg-indigo-700 sm:w-auto">
-              Get started
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-            </router-link>
-            <a href="https://play.google.com/store/apps/details?id=com.green.pick" class="flex items-center px-6 py-3 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 hover:text-gray-600">
-              Download the app
-            </a>
-          </div>
-        </div>
+      <div class="max-w">
+         <video class="rounded" src="../assets/vid.mp4" type="video/mp4" autoplay muted loop></video>
       </div>
-      <div class="w-full md:w-1/2">
-        <div class="max-w-full h-auto overflow-hidden rounded-md shadow-xl sm:rounded-xl">
-           <video class="max-w-full max-h-full" src="../assets/vid.mp4" type="video/mp4" autoplay muted loop></video>
-          </div>
-      </div>
+      
     </div>
   </div>
 </section>
-
-
-
-
-<!-- Section 5 -->
 <section class="flex items-center justify-center py-20 bg-white min-w-screen">
     <div class="px-16 bg-white">
         <div class="container flex flex-col items-start mx-auto lg:items-center">

@@ -23,17 +23,43 @@
     </div>
 </section>
 
+<header class="relative flex items-center justify-center h-screen mb-12 overflow-hidden">
+  <div
+    class="relative z-30 p-4 text-2xl text-white bg-purple-50 bg-opacity-60 rounded-xl"
+  >
+  <h1 class="text-green-600 text-5xl font-bold">At GreenPick,</h1>
+  <p class="text-gray-900"> We are on a mission to create a sustainable future <br>
+      where we are empowering <br>
+      farmers to sell their produce directly to leading retail outlets.</p>
+      <router-link to="/login" class="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600">
+                Get Started
+            </router-link>
+  </div>
+  <video
+    autoplay
+    loop
+    muted
+    class="absolute z-10 w-auto min-w-full min-h-full max-w-none"
+  >
+    <source
+      src="../assets/vid.mp4"
+      type="video/mp4"
+    />
+    Your browser does not support the video tag.
+  </video>
+</header>
+
 <!-- Section 2 -->
-<section class=" py-0 bg-white md:px-0">
-  <div class="container items-center max-w-8xl px-8 mx-auto xl:px-5">
+<!-- <section class="py-0 bg-white md:px-0">
+  <div class="container px-8 mx-auto xl:px-5">
     <div class="flex flex-wrap items-center sm:-mx-3">
-      <div class="max-w">
+      <div style="width:100%">
          <video class="rounded" src="../assets/vid.mp4" type="video/mp4" autoplay muted loop></video>
       </div>
       
     </div>
   </div>
-</section>
+</section> -->
 <section class="flex items-center justify-center py-20 bg-white min-w-screen">
     <div class="px-16 bg-white">
         <div class="container flex flex-col items-start mx-auto lg:items-center">

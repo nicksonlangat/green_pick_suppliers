@@ -25,12 +25,11 @@
 
 <header class="relative flex items-center justify-center h-screen mb-12 overflow-hidden">
   <div
-    class="relative z-30 p-4 text-2xl text-white bg-purple-50 bg-opacity-60 rounded-xl"
+    class="relative z-30 p-4 text-2xl text-white bg-purple-50 bg-opacity-40 rounded-xl"
   >
-  <h1 class="text-green-600 text-5xl font-bold">At GreenPick,</h1>
-  <p class="text-gray-900"> We are on a mission to create a sustainable future <br>
-      where we are empowering <br>
-      farmers to sell their produce directly to leading retail outlets.</p>
+  <h1 class="text-green-600 text-5xl font-bold">At GreenPick</h1>
+  <p class="text-gray-900"> We are on a mission to create a sustainable future where we are  <br>
+     empowering farmers to sell their produce directly to leading retail outlets.</p>
       <router-link to="/login" class="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600">
                 Get Started
             </router-link>

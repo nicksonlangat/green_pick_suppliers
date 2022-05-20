@@ -97,7 +97,7 @@ export default {
           const config = {
         headers: { Authorization: `Token ${this.user.access_token}` }
     };
-          return axios.get('http://3.143.144.168/products', config).then(res=>{
+          return axios.get('https://api.greenpick.store/products', config).then(res=>{
               this.products=res.data;
           })
       },
@@ -105,7 +105,7 @@ export default {
           const config = {
         headers: { Authorization: `Token ${this.user.access_token}` }
     };
-          return axios.get('http://3.143.144.168/categories', config).then(res=>{
+          return axios.get('https://api.greenpick.store/categories', config).then(res=>{
               this.categories=res.data;
           })
       },
@@ -124,7 +124,7 @@ export default {
             const config = {
         headers: { Authorization: `Token ${this.user.access_token}` }
     };
-          axios.post('http://3.143.144.168/products/', data, config).then(res=>{
+          axios.post('https://api.greenpick.store/products/', data, config).then(res=>{
               this.$router.push({ name: "Products"})
           }).catch(error=>{
               console.log(error)

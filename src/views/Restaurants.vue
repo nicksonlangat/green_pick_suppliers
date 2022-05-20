@@ -45,7 +45,7 @@ export default {
 
   methods: {
     getRests(){
-      return axios.get('http://3.143.144.168/restaurants').then(res=>{
+      return axios.get('https://api.greenpick.store/restaurants').then(res=>{
         this.rests = res.data
         console.log(this.rests)
       })

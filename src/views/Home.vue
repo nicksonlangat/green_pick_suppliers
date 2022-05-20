@@ -206,7 +206,7 @@ export default {
         headers: { Authorization: `Token ${this.user.access_token}` }
     };
     // http://3.143.144.168/orders/
-          return axios.get('http://3.143.144.168/orders/', config).then(res=>{
+          return axios.get('https://api.greenpick.store/orders/', config).then(res=>{
             console.log(res)
         this.orders=res.data
         console.log(this.orders)
@@ -218,7 +218,7 @@ export default {
       const config = {
         headers: { Authorization: `Token ${this.user.access_token}` }
     };
-      axios.patch(`http://3.143.144.168/orders/${id}/`,
+      axios.patch(`https://api.greenpick.store/orders/${id}/`,
         {
     "is_fulfilled": true
   }).then(res=>{
@@ -231,7 +231,7 @@ export default {
       const config = {
         headers: { Authorization: `Token ${this.user.access_token}` }
     };
-      axios.delete(`http://3.143.144.168/orders/${id}/`,
+      axios.delete(`https://api.greenpick.store/orders/${id}/`,
         ).then(res=>{
           this.getOrders()
         }).catch(error=>{

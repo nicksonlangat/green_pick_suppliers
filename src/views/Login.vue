@@ -94,7 +94,7 @@ export default {
         password:this.user.password
       }
       e.preventDefault();
-      return axios.post('http://3.143.144.168/accounts/login', data).then(res=>{
+      return axios.post('https://api.greenpick.store/accounts/login', data).then(res=>{
         localStorage.setItem('loggedUser', JSON.stringify(res.data))
         this.$router.push({ name: "Home"})
       }).catch(error=>{

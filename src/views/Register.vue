@@ -124,7 +124,7 @@ export default {
 
   methods: {
     getRests(){
-      return axios.get('http://3.143.144.168/restaurants').then(res=>{
+      return axios.get('https://api.greenpick.store/restaurants').then(res=>{
         this.rests = res.data
         console.log(this.rests)
       })
@@ -141,7 +141,7 @@ export default {
           }
           e.preventDefault();
           console.log(data)
-          return axios.post('http://3.143.144.168/accounts/register',data).then(res=>{
+          return axios.post('https://api.greenpick.store/accounts/register',data).then(res=>{
               console.log(res)
               this.$router.push({ name: "Home"})
           }).catch(error=>{

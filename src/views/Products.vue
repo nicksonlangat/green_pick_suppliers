@@ -140,7 +140,7 @@ export default {
         const config = {
         headers: { Authorization: `Token ${this.user.access_token}` }
     };
-      return axios.get('http://3.143.144.168/products').then(res=>{
+      return axios.get('https://api.greenpick.store/products').then(res=>{
         this.products=res.data
         console.log(res.data)
       }).catch(error=>{
@@ -152,14 +152,14 @@ export default {
 		console.log('edited', id)
 	},
 	deleteProd(id){
-	axios.delete(`http://3.143.144.168/products/${id}/`).then(res=>{
+	axios.delete(`https://api.greenpick.store/products/${id}/`).then(res=>{
 				this.getProducts()
 				}).catch(error=>{
 				console.log(error)
 				})
 	},
 	commit(id){
-		axios.patch(`http://3.143.144.168/products/${id}/`,
+		axios.patch(`https://api.greenpick.store/products/${id}/`,
 				{
 			"price": this.newPrice
 		}).then(res=>{
@@ -170,7 +170,7 @@ export default {
 				})
 			},
 	update(){
-		axios.patch('http://3.143.144.168/accounts/users/1/',
+		axios.patch('https://api.greenpick.store/accounts/users/1/',
 				{
 			"name": "Adams"
 		}).then(res=>{

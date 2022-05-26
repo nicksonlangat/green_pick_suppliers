@@ -100,7 +100,7 @@ export default {
       formData.append('name', rest_data.name)
       formData.append('address', rest_data.address)
       formData.append('cover_image', this.imagesArray, this.imagesArray.name)
-      axios.post('http://localhost:8000/accounts/register',data).then(res=>{
+      axios.post('https://api.greenpick.store/accounts/register',data).then(res=>{
                           console.log(res)
                           rest_data['executive_chef'] = res.data.user.id;
                           formData.append("executive_chef", rest_data.executive_chef)
@@ -112,7 +112,7 @@ export default {
     onBoardRest(data){
       console.log(data)
       
-      axios.post('http://localhost:8000/restaurants/',data).then(res=>{
+      axios.post('https://api.greenpick.store/restaurants/',data).then(res=>{
                           console.log(res)
                            this.$router.push({ name: "Success"})
                         }).catch(error=>{

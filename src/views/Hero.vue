@@ -9,14 +9,14 @@
               <img src="../assets/logo1.png" class="mr-3 h-6 sm:h-9" alt="Logo" />
             </router-link>
             <nav class="flex flex-wrap items-center mb-5 text-base md:mb-0 md:pl-8 md:ml-8 md:border-l md:border-gray-200">
-                <router-link to="/orders" class="mr-5 font-medium leading-6 text-blue-600 hover:text-gray-900">Home</router-link>
+                <router-link to="/orders" class="mr-5 font-medium leading-6 text-blue-900 hover:text-gray-900">Home</router-link>
                 
             </nav>
         </div>
 
         <div class="inline-flex items-center ml-5 space-x-6 lg:justify-end">
             
-            <router-link to="/login" class="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600">
+            <router-link to="/login" class="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-blue-900 border border-transparent rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600">
                 Get Started
             </router-link>
         </div>
@@ -30,7 +30,7 @@
   <h1 class="text-green-600 text-5xl font-bold">At GreenPick</h1>
   <p class="text-gray-900"> We are on a mission to create a sustainable future where we are  <br>
      empowering farmers to sell their produce directly to leading retail outlets.</p>
-      <router-link to="/login" class="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600">
+      <router-link to="/onboard" class="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-blue-900 border border-transparent rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600">
                 Get Started
             </router-link>
   </div>

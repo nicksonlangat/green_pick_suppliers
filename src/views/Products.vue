@@ -16,9 +16,9 @@
           </div>
 				<div class="lg:ml-40 ml-10 space-x-8">
 					<router-link class="font-medium text-gray-700 dark:text-gray-200 hover:underline" to="/new-product"> 
-					<button class="bg-gray-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">Add product</button>
+					<button class="bg-blue-900 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">Add product</button>
 					</router-link>
-					<button  class="bg-gray-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">PDF Export</button>
+					<button  class="bg-blue-900 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">PDF Export</button>
 				</div>
 			</div>
 		</div>

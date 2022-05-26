@@ -58,12 +58,20 @@ const routes = [
     component: Reset
   },
   {
-    path: '/about',
-    name: 'About',
+    path: '/onboard',
+    name: 'Onboard',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/Onboard.vue')
+  },
+  {
+    path: '/success',
+    name: 'Success',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/Success.vue')
   }
 ]
 

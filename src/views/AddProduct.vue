@@ -5,9 +5,9 @@
     
     <section class="w-full max-w-2xl px-6 py-4 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
         <h2 class="text-3xl font-semibold text-center text-gray-800 dark:text-white"> NEW PRODUCT</h2>
-        <p class="mt-3 text-center text-gray-600 dark:text-gray-400">Fill the form below.</p>
         
-        <div class="mt-6 ">
+        
+        <form @submit.prevent="addProduct" class="mt-2 ">
             <div class="items-center -mx-2 md:flex">
                 <div class="relative w-full mx-2 mt-4 md:mt-0">
                        </div>
@@ -44,9 +44,7 @@
             {{cat.name}}
         </option>
         </select>
-      <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-      </div>
+     
                     </div>
                 <div class="relative w-full mx-2 mt-4 md:mt-0">
                     <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">Preference</label>
@@ -56,16 +54,19 @@
          <option>Imported</option>
          
         </select>
-      <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-      </div>
-                    <!-- <input class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="email"> -->
                 </div>
             </div>
-            <div class="flex justify-center mt-6">
-                <button @click="addProduct" class="px-4 py-2 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Save product</button>
+            <br>
+            <div class="items-center -mx-2 md:flex">
+                <div class="relative w-full mx-2 mt-4 md:mt-0">
+                    <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">Product image</label>
+                    <input name="imagesArray" @change="onChange" type="file"  class="block appearance-none w-full bg-white-200 border border-gray-500 text-gray-700 py-3 px-6 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+       </div>
             </div>
-        </div>
+            <div class="flex justify-center mt-6">
+                <button  class="px-4 py-2 text-white transition-colors duration-200 transform bg-blue-900 rounded-md hover:bg-blue-700 focus:outline-none focus:bg-gray-600">Save product</button>
+            </div>
+        </form>
     </section>
 </div>
 
@@ -88,7 +89,8 @@ export default {
             is_available:true,
             preference:'',
             category:''
-        }
+        },
+        imagesArray: null
 
     }
   },
@@ -109,22 +111,31 @@ export default {
               this.categories=res.data;
           })
       },
+       onChange (event) {
+          this.imagesArray = event.target.files[0]
+        },
       addProduct(){
              const data ={
-                 customer:this.user.user.id,
                  name:this.product.name,
-                //  product_image:this.product.product_image,
+                 product_image:null,
                  price:this.product.price,
                  unit_of_measurement:this.product.unit_of_measurement,
-                //  is_available:this.product.is_available,
                  preference:this.product.preference,
                  category:this.product.category     
             }
-            console.log(data)
+            const formData = new FormData()
+      
+            formData.append('category', data.category)
+            formData.append('name', data.name)
+            formData.append('price', data.price)
+            formData.append('preference', data.preference)
+            formData.append('unit_of_measurement', data.unit_of_measurement)
+            formData.append('product_image', this.imagesArray, this.imagesArray.name)
+            console.log(formData)
             const config = {
         headers: { Authorization: `Token ${this.user.access_token}` }
     };
-          axios.post('https://api.greenpick.store/products/', data, config).then(res=>{
+          axios.post('https://api.greenpick.store/products/', formData, config).then(res=>{
               this.$router.push({ name: "Products"})
           }).catch(error=>{
               console.log(error)

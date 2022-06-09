@@ -6,7 +6,7 @@
     <div class="container flex flex-col flex-wrap items-center justify-between py-5 mx-auto md:flex-row max-w-7xl">
         <div class="relative flex flex-col md:flex-row">
             <router-link to="/orders" class="flex items-center mb-5 font-medium text-gray-900 lg:w-auto lg:items-center lg:justify-center md:mb-0">
-              <img src="../assets/logo1.png" class="mr-3 h-6 sm:h-9" alt="Logo" />
+              <img src="../assets/Greenpick logo.svg" class=" h-16" alt="Logo" />
             </router-link>
             <nav class="flex flex-wrap items-center mb-5 text-base md:mb-0 md:pl-8 md:ml-8 md:border-l md:border-gray-200">
                 <router-link to="/orders" class="mr-5 font-medium leading-6 text-blue-900 hover:text-gray-900">Home</router-link>

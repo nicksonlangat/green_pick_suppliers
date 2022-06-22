@@ -6,13 +6,13 @@
 <div class="bg-white p-8 rounded-md w-full">
 	<div class=" flex items-center justify-between pb-6">
 		<div>
-			<h2 class="text-gray-600 font-semibold">All products</h2>
+			<h2 class="text-black uppercase font-semibold">All products</h2>
 			
 		</div>
-		<div class="flex items-center justify-between">
+		<div class="flex items-center justify-center">
 			<div class="flex bg-gray-50 items-center p-2 rounded-md">
 				
-				<input v-model="name" class="rounded ml-1 block " type="text" name="" id="" placeholder="search products...">
+				<input v-model="name" class="rounded ml-0 block " type="text" name="" id="" placeholder="search products...">
           </div>
 				<div class="lg:ml-40 ml-10 space-x-8">
 					<router-link class="font-medium text-gray-700 dark:text-gray-200 hover:underline" to="/new-product"> 
@@ -60,7 +60,7 @@
 						</thead>
 						<tbody>
 							<tr v-for="prod of filteredProducts" :key="prod.id">
-								<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+								<td class="border-b border-gray-200 bg-white text-sm">
 									<div class="flex items-center">
 										
 											<div class="ml-3">
@@ -107,7 +107,21 @@
 							</tr>	
 						</tbody>
 					</table>
-					
+					<div class="flex flex-col items-center">
+  <!-- Help text -->
+  <span class="text-sm text-gray-700 dark:text-gray-400">
+      Showing <span class="font-semibold text-gray-900 dark:text-white">1</span> to <span class="font-semibold text-gray-900 dark:text-white">15</span> of <span class="font-semibold text-gray-900 dark:text-white">100</span> Entries
+  </span>
+  <!-- Buttons -->
+  <div class="inline-flex mt-2 xs:mt-0">
+      <button class="py-2 px-4 text-sm font-medium text-white bg-gray-800 rounded-l hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+          Prev
+      </button>
+      <button class="py-2 px-4 text-sm font-medium text-white bg-gray-800 rounded-r border-0 border-l border-gray-700 hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+          Next
+      </button>
+  </div>
+</div>
 				</div>
 			</div>
 		</div>
@@ -141,7 +155,7 @@ export default {
         headers: { Authorization: `Token ${this.user.access_token}` }
     };
       return axios.get('https://api.greenpick.store/products').then(res=>{
-        this.products=res.data
+        this.products=res.data.results
         console.log(res.data)
       }).catch(error=>{
         console.log(error)

@@ -6,7 +6,7 @@
                 <div class="flex items-center justify-between">
                     <div>
                         <a href="/" class="flex items-center">
-      <img src="../assets/logo1.png" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
+      <img src="../assets/Greenpick logo.svg" class="mr-3 h-6 sm:h-9" alt="Logo" />
       <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"></span>
   </a>
                          <!-- <router-link class="text-2xl font-bold text-gray-800 dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300" to="/">GREEN PICK</router-link> -->
@@ -32,7 +32,7 @@
                        
                         <router-link v-if="loggedIn" class="block font-medium text-blue-900 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 hover:underline" to="/restaurants">RESTAURANTS</router-link> 
                         
- <router-link v-if="loggedIn" class="block font-medium text-blue-900 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 hover:underline" to="/register">NEW EXECUTIVE</router-link> 
+ <router-link v-if="loggedIn" class="block font-medium text-blue-900 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 hover:underline" to="/onboard">NEW RESTAURANT</router-link> 
 <router-link  v-if="!loggedIn" class="font-medium text-gray-700 dark:text-gray-200 hover:underline" to="/login"> 
  <button class="flex items-center px-5 py-2 text-sm font-medium tracking-wide text-center text-white capitalize transition-colors duration-200 transform bg-blue-900 rounded-lg hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
                           Login

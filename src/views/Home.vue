@@ -6,17 +6,17 @@
   <div class="container my-12 mx-auto px-4 md:px-12">
    
 <section class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
-        <div class="flex items-center p-8 bg-green-400 shadow rounded-lg">
-          <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-blue-600 bg-blue-100 rounded-full mr-6">
+        <div class="flex items-center p-8 bg-green-500 shadow rounded-lg">
+          <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-blue-600 bg-white rounded-full mr-6">
             {{dash.orders}}
           </div>
           <div>
-            <span class="block text-2xl font-bold">Orders</span>
-            <span class="block text-black">Placed</span>
+            <span class="block text-2xl text-white font-bold">Orders</span>
+            <span class="block text-white">Placed</span>
           </div>
         </div>
-        <div class="flex items-center p-8 bg-indigo-900 shadow rounded-lg">
-          <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-green-600 bg-green-100 rounded-full mr-6">
+        <div class="flex items-center p-8 bg-teal-900 shadow rounded-lg">
+          <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-green-600 bg-white rounded-full mr-6">
            {{dash.products}}
           </div>
           <div>
@@ -24,14 +24,14 @@
             <span class="block text-white">Available</span>
           </div>
         </div>
-        <div class="flex items-center p-8 bg-blue-300 shadow rounded-lg">
+        <div class="flex items-center p-8 bg-blue-900 shadow rounded-lg">
           <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-red-600 bg-red-100 rounded-full mr-6">
             {{dash.rests}}
           </div>
           <div>
-            <span class="inline-block text-2xl font-bold">Restaurant</span>
+            <span class="inline-block text-2xl text-white font-bold">Restaurants</span>
           
-            <span class="block text-black">Onboarded</span>
+            <span class="block text-black text-white">Onboarded</span>
           </div>
         </div>
         <div class="flex items-center p-8 bg-gray-900 shadow rounded-lg">
@@ -56,11 +56,11 @@
           </div>
 </div>
    <br>
-    <!-- This example requires Tailwind CSS v2.0+ -->
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
       <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
         <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
           <table class="min-w-full divide-y divide-gray-200">
+            <modal v-if="modalVisible" @close="modalVisible = false" :data="modalData"/>
             <thead class="bg-white">
               <tr>
                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
@@ -78,19 +78,6 @@
                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
                   DELIVERY STATUS
                 </th>
-                <!-- <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
-                 DELIVERY ADDRESS
-                </th>
-                
-                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
-                  PAYMENT METHOD
-                </th>
-                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
-                  NOTES
-                </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
-                  PRODUCTS
-                </th> -->
                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
                   ACTION
                 </th>
@@ -128,61 +115,52 @@
                     </div>
                   </div>
                 </td>
-                 <!-- <td class="px-6 py-4 ">
-                  <div class="text-sm text-gray-900"> {{loan.customer_credit_worthiness}}</div>
-                </td> -->
-                <!-- <td class="px-6 py-4 ">
-                  <div v-if="ord.delivery_address"  class="text-sm text-gray-900"> {{ord.delivery_address}}</div>
-                  <div v-else class="text-sm text-gray-900"> 154 James Gichuru Road, Nairobi</div>
-                </td>
-                <td class="px-6 py-4 ">
-                  <div class="text-sm text-gray-900">  {{ord.payment_method}}</div>
-                </td>
-                <td class="px-6 py-4 ">
-                  <div class="text-sm text-gray-900"> {{ord.order_notes}}</div>
-                </td> -->
-                <!-- <td class="px-6 py-4 ">
-                  <div class="text-sm text-gray-900"> 
-                    <ol>
-                      <li v-for="prod of ord.products" :key="prod.qty">{{prod.qty}} {{prod.unit}} of {{prod.name}} </li>
-                    </ol>
-                  </div>
-                </td> -->
-               
-                
                 <td class="px-6 py-4 flex text-right text-sm font-medium"> 
-               <button class="bg-white text-blue-600 active:bg-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button"
+               <button @click="openModal(ord)" class="bg-white text-blue-600 active:bg-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button"
                     >
                 view
               </button>
+              
 								</td>
-
-                
               </tr>
             </tbody>
             
           </table>
-          
-
-          
-<div class="flex flex-col items-center">
-  <!-- Help text -->
-  <span class="text-sm text-gray-700 dark:text-gray-400">
-      Showing <span class="font-semibold text-gray-900 dark:text-white">1</span> to <span class="font-semibold text-gray-900 dark:text-white">15</span> of <span class="font-semibold text-gray-900 dark:text-white">100</span> Entries
-  </span>
-  <!-- Buttons -->
-  <div class="inline-flex mt-2 xs:mt-0">
-      <button class="py-2 px-4 text-sm font-medium text-white bg-gray-800 rounded-l hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-          Prev
-      </button>
-      <button class="py-2 px-4 text-sm font-medium text-white bg-gray-800 rounded-r border-0 border-l border-gray-700 hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-          Next
-      </button>
-  </div>
-</div>
-
-          
+         
         </div>
+        <br>
+        <div class="flex mx-auto max-w-md">
+            <button v-if="previous !== null" @click="getPrevOrders()" class="px-4 py-2 mx-1 text-white capitalize bg-blue-900 rounded-md">
+                <div class="flex items-center -mx-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+                    </svg>
+
+                    <span class="mx-1">
+                        previous
+                    </span>
+                </div>
+            </button>
+
+            <a href="#" class="hidden px-4 py-2 mx-1 text-gray-900 transition-colors duration-200 transform bg-gray-100 rounded-md sm:inline">
+                Page {{page}} of {{total_pages}}
+            </a>
+
+            
+
+            <button v-if="nextPage !== null" @click="getNextOrders()" class="px-4 py-2 mx-1 transition-colors duration-200 transform bg-blue-900 rounded-md hover:text-white text-white">
+                <div class="flex items-center -mx-1">
+                    <span class="mx-1">
+                        Next
+                    </span>
+                    
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                </div>
+            </button>
+        </div>
+
       </div>
     </div>
   
@@ -193,10 +171,11 @@
 </template>
 <script>
 import Navigation from '@/components/Navigation.vue'
+import Modal from '@/components/Modal.vue'
 import axios from 'axios'
 import moment from 'moment'
 export default {
-  components:{Navigation},
+  components:{Navigation, Modal},
   data(){
     return{
       number: '',
@@ -206,6 +185,16 @@ export default {
       stats:{},
       isSuperuser:true,
       dash:{},
+      showModal: 0,
+      page:1,
+      nextPage:'',
+      previous:'',
+      endReached:false,
+      prevPage:0,
+      total_pages:'',
+      modalVisible: false,
+       modalData: null
+      
     }
   },
   computed: {
@@ -216,22 +205,50 @@ export default {
     },
   },
   methods:{
-    onChangePage(pageOfItems) {
-            // update page of items
-            this.pageOfItems = pageOfItems;
-        },
+    openModal(data) {
+      this.modalData = data
+      this.modalVisible = true
+    },
+    toggleModal: function(id){
+      this.showModal = id;
+      console.log(id)
+    },
     getOrders(){
       const config = {
         headers: { Authorization: `Token ${this.user.access_token}` }
     };
-          return axios.get('https://api.greenpick.store/orders/', config).then(res=>{
+          return axios.get(`https://api.greenpick.store/orders/?page=${this.page}`, config).then(res=>{
             
         this.orders=res.data.results
+        // this.orders.push(...res.data.results)
+        this.nextPage=res.data.links.next
+        this.previous = res.data.links.previous
+        this.total_pages = res.data.total_pages
+        console.log(this.nextPage)
         
       }).catch(error=>{
         console.log(error)
       })
     },
+    getNextOrders() {
+        if(this.nextPage!=null){
+            this.page++
+            this.prevPage++
+            this.getOrders()
+        }
+        else{
+            this.endReached=true;
+        }
+            },
+    getPrevOrders() {
+        if(this.previous!=null){
+            this.page--
+            this.getOrders()
+        }
+        else{
+            this.endReached=true;
+        }
+            },
     fullfil(id){
       const config = {
         headers: { Authorization: `Token ${this.user.access_token}` }
@@ -261,7 +278,7 @@ export default {
     getDashboardData(){
       
           return axios.get('https://api.greenpick.store/dash').then(res=>{
-            console.log(res)
+           
         this.dash['orders']=res.data.orders
         this.dash['products']=res.data.products
         this.dash['users']=res.data.users
@@ -282,3 +299,9 @@ export default {
   }
 }
 </script>
+<style scoped>
+.modal-backdrop
+{
+    opacity:0.5 !important;
+}
+</style>

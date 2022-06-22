@@ -6,13 +6,13 @@
 <div class="bg-white p-8 rounded-md w-full">
 	<div class=" flex items-center justify-between pb-6">
 		<div>
-			<h2 class="text-black uppercase font-semibold">All products</h2>
+			<h2 class="text-black uppercase ml-2 font-semibold">All products</h2>
 			
 		</div>
 		<div class="flex items-center justify-center">
-			<div class="flex bg-gray-50 items-center p-2 rounded-md">
+			<div class="flex items-center p-2 rounded-md">
 				
-				<input v-model="name" class="rounded ml-0 block " type="text" name="" id="" placeholder="search products...">
+				<input v-model="name" class="rounded mr-56 block " type="text" name="" id="" placeholder="search products...">
           </div>
 				<div class="lg:ml-40 ml-10 space-x-8">
 					<router-link class="font-medium text-gray-700 dark:text-gray-200 hover:underline" to="/new-product"> 
@@ -22,117 +22,132 @@
 				</div>
 			</div>
 		</div>
-		<div>
-			<div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
-				<div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
-					<table class="min-w-full leading-normal">
-						<thead>
-							<tr>
-								<th
-									class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-									Name
-								</th>
-								<th
-									class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-									UOM
-								</th>
-								<th
-									class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-									Unit Price
-								</th>
-								<th
-									class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-									Category
-								</th>
-								<th
-									class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-									Preference
-								</th>
-								<th
-									class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-									Availability
-								</th>
-								<th
-									class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-									Action
-								</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr v-for="prod of filteredProducts" :key="prod.id">
-								<td class="border-b border-gray-200 bg-white text-sm">
-									<div class="flex items-center">
-										
-											<div class="ml-3">
-												<p class="text-gray-900 whitespace-no-wrap">
-													{{prod.name}} 
-												</p>
-											</div>
-										</div>
-								</td>
-								<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-									<p class="text-gray-900 whitespace-no-wrap">{{prod.unit_of_measurement}}</p>
-								</td>
-								<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-									<p v-if="!editable" class="text-gray-900 whitespace-no-wrap">
-										{{prod.price}}
-									</p>
-									<form v-if="editable">
-										<input v-model="newPrice" placeholder="New price..." type="text" id="small-input" class="block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-									</form>
-								</td>
-								<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-									<p class="text-gray-900 whitespace-no-wrap">
-										{{prod.category}}
-									</p>
-								</td>
-								<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-									<p class="text-gray-900 whitespace-no-wrap">
-										{{prod.preference}}
-									</p>
-								</td>
-								<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-									<span
+		<br>
+    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+        <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+          <table class="min-w-full divide-y divide-gray-200">
+            <modal2 v-if="modalVisible" @close="modalVisible = false" :data="modalData"/>
+            <thead class="bg-white">
+              <tr>
+                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
+                  NAME
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
+                  CATEGORY
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
+                UOM
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
+                 UNIT PRICE
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
+                 PREFERENCE
+                </th>
+				<th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
+                 AVAILABILITY
+                </th>
+                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
+                  ACTION
+                </th>
+                <th scope="col" class="relative px-6 py-3">
+                  <span class="sr-only">Edit</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+              <tr v-for="ord of filteredProducts" :key="ord.id">
+                <td class="px-6 py-4 ">
+                  {{ord.name}}
+                </td>
+                <td class="px-6 py-4 ">
+                  <div class="text-sm text-gray-900"> {{ord.category}}</div>
+                </td>
+				<td class="px-6 py-4 ">
+                  <div  class="text-sm text-gray-900"> {{ord.unit_of_measurement}}</div>
+                </td>
+                <td class="px-6 py-4 ">
+                  <div  class="text-sm text-gray-900"> {{ord.price}}</div>
+                </td>
+                <td class="px-6 py-4 ">
+                  <div class="text-sm text-gray-900"> {{ord.preference}}</div>
+                </td>
+				<td class="px-6 py-4 ">
+					<span
                                         class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
                                         <span aria-hidden
                                             class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-									<span class="relative" v-if="prod.is_available == true">Yes</span>
+									<span class="relative" v-if="ord.is_available == true">Yes</span>
 									</span>
-								</td>
-								<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-									<button v-if="!editable" @click="edit(prod.id)" type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">Edit</button>
-								<button v-if="editable" @click="commit(prod.id)" type="button" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Save</button>
-								<button v-if="!editable" @click="deleteProd(prod.id)" type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Delete</button>
-								</td>
-							</tr>	
-						</tbody>
-					</table>
-					<div class="flex flex-col items-center">
-  <!-- Help text -->
-  <span class="text-sm text-gray-700 dark:text-gray-400">
-      Showing <span class="font-semibold text-gray-900 dark:text-white">1</span> to <span class="font-semibold text-gray-900 dark:text-white">15</span> of <span class="font-semibold text-gray-900 dark:text-white">100</span> Entries
-  </span>
-  <!-- Buttons -->
-  <div class="inline-flex mt-2 xs:mt-0">
-      <button class="py-2 px-4 text-sm font-medium text-white bg-gray-800 rounded-l hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-          Prev
-      </button>
-      <button class="py-2 px-4 text-sm font-medium text-white bg-gray-800 rounded-r border-0 border-l border-gray-700 hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-          Next
-      </button>
-  </div>
-</div>
-				</div>
-			</div>
-		</div>
-	</div>
+				</td>
+                
+                <td class="px-6 py-4 gap-4 flex text-right text-sm font-medium"> 
+			  <p class="text-blue-600" @click="openModal(ord)">
+				<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+  <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+</svg>
+			  </p>
+			  <p class="text-red-500" @click="deleteProd(ord.id)">
+				<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+</svg>
+			  </p>
+              
+				</td>
+              </tr>
+            </tbody>
+            
+          </table>
+         
+        </div>
+        <br>
+        <div class="flex mx-auto max-w-md">
+            <button v-if="previous !== null" @click="getPrevProducts()" class="px-4 py-2 mx-1 text-white capitalize bg-blue-900 rounded-md">
+                <div class="flex items-center -mx-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+                    </svg>
+
+                    <span class="mx-1">
+                        previous
+                    </span>
+                </div>
+            </button>
+
+            <a href="#" class="hidden px-4 py-2 mx-1 text-gray-900 transition-colors duration-200 transform bg-gray-100 rounded-md sm:inline">
+                Page {{page}} of {{total_pages}}
+            </a>
+
+            
+
+            <button v-if="nextPage !== null" @click="getNextProducts()" class="px-4 py-2 mx-1 transition-colors duration-200 transform bg-blue-900 rounded-md hover:text-white text-white">
+                <div class="flex items-center -mx-1">
+                    <span class="mx-1">
+                        Next
+                    </span>
+                    
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                </div>
+            </button>
+        </div>
+
+      </div>
     </div>
+  
+</div>
+<br>
+</div>
 </template>
 <script>
 import Navigation from '@/components/Navigation.vue'
+import Modal2 from '@/components/Modal2.vue'
 import axios from 'axios'
 export default {
-  components:{Navigation},
+  components:{Navigation, Modal2},
   data(){
     return{
         name:'',
@@ -140,6 +155,14 @@ export default {
 		products:[],
 		editable:false,
 		newPrice:'',
+		page:1,
+      nextPage:'',
+      previous:'',
+      endReached:false,
+      prevPage:0,
+      total_pages:'',
+      modalVisible: false,
+       modalData: null
     }
   },
   computed: {
@@ -150,13 +173,39 @@ export default {
     },
   },
   methods:{
+	openModal(data) {
+      this.modalData = data
+      this.modalVisible = true
+    },
+	getNextProducts() {
+        if(this.nextPage!=null){
+            this.page++
+            this.prevPage++
+            this.getProducts()
+        }
+        else{
+            this.endReached=true;
+        }
+            },
+    getPrevProducts() {
+        if(this.previous!=null){
+            this.page--
+            this.getProducts()
+        }
+        else{
+            this.endReached=true;
+        }
+            },
     getProducts(){
         const config = {
         headers: { Authorization: `Token ${this.user.access_token}` }
     };
-      return axios.get('https://api.greenpick.store/products').then(res=>{
+      return axios.get(`https://api.greenpick.store/products/?page=${this.page}`).then(res=>{
         this.products=res.data.results
-        console.log(res.data)
+		 this.nextPage=res.data.links.next
+        this.previous = res.data.links.previous
+        this.total_pages = res.data.total_pages
+        // console.log(res.data)
       }).catch(error=>{
         console.log(error)
       })

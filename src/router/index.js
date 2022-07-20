@@ -9,6 +9,8 @@ import Loan from '../views/Loan.vue'
 import AddProduct from '../views/AddProduct.vue'
 import Products from '../views/Products.vue'
 import Restaurants from '../views/Restaurants.vue'
+import Categories from '../views/Categories.vue'
+import AddCategory from '../views/AddCategory.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -43,9 +45,19 @@ const routes = [
     component: AddProduct
   },
   {
+    path: '/new-category',
+    name: 'newcategory',
+    component: AddCategory
+  },
+  {
     path: '/products',
     name: 'Products',
     component: Products
+  },
+  {
+    path: '/categories',
+    name: 'categories',
+    component: Categories
   },
   {
     path: '/restaurants',

@@ -28,6 +28,7 @@
                         <!-- <a class="block font-medium text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 hover:underline" href="#">MY TICKETS</a> -->
                          <router-link v-if="loggedIn" class="block font-medium bg-gray-200 rounded shadow px-2 text-blue-900 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 hover:underline" to="/orders">ORDERS</router-link> 
                         <router-link v-if="loggedIn" class="block font-medium  bg-gray-200 rounded shadow px-2 text-blue-900 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 hover:underline" to="/products">PRODUCTS</router-link> 
+                        <router-link v-if="loggedIn" class="block font-medium  bg-gray-200 rounded shadow px-2 text-blue-900 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 hover:underline" to="/categories">CATEGORIES</router-link> 
                         
                        
                         <router-link v-if="loggedIn" class="block font-medium  bg-gray-200 rounded shadow px-2 text-blue-900 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 hover:underline" to="/restaurants">RESTAURANTS</router-link> 

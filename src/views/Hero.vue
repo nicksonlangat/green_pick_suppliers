@@ -65,7 +65,7 @@
          <div class=" bg-white">
             <div class="container flex gap-6 flex-col items-start mx-auto lg:items-center">
                <div class=" w-full mt-12 mb-4 lg:flex gap-4">
-                  <div class="ml-4 flex flex-col items-start justify-start w-full h-auto mb-12 lg:w-1/2 lg:mb-0">
+                  <div class="ml-0 flex flex-col items-start justify-start w-full h-auto mb-12 lg:w-1/2 lg:mb-0">
                      <div class="flex items-start justify-start">
                         <div class="flex flex-col  items-start justify-center">
                            <h4 class="font-black text-black text-2xl flex gap-2">
@@ -106,12 +106,12 @@
          </div>
       </section>
       <section>
-         <section id="services" class="bg-white dark:bg-gray-900">
-            <h2 class="relative flex items-start mt-8 ml-2 justify-start w-full text-blue-900 max-w-3xl text-5xl font-bold lg:justify-center">
+         <section id="services" class="ml-20 bg-white dark:bg-gray-900">
+            <h2 class="relative flex items-start mt-8 -ml-12 justify-start w-full text-blue-900 max-w-3xl text-5xl font-bold lg:justify-center">
                Our services
             </h2>
-            <div class="container flex flex-col items-center px-4 py-12 mx-auto xl:flex-row">
-               <div class="flex justify-center xl:w-1/2">
+            <div class="container flex flex-col ml-2 items-center px-4 py-12 mx-auto xl:flex-row">
+               <div class="flex justify-center xl:w-1/2 -ml-4">
                   <img class="h-80 w-80 sm:w-[28rem] sm:h-[28rem] flex-shrink-0 object-cover" src="../assets/rest.jpg" alt="">
                </div>
                <div class="flex flex-col items-center mt-6 xl:items-start xl:w-1/2 xl:mt-0">
@@ -135,18 +135,18 @@
             <div class="container flex flex-col items-center px-4 py-12 mx-auto xl:flex-row">
                
                <div class="flex flex-col ml-36 items-center mt-6 xl:items-start xl:w-1/2 xl:mt-0">
-                  <h2 id="farmers" class="text-3xl font-bold tracking-tight text-gray-800 xl:text-4xl dark:text-white">
+                  <h2 id="farmers" class="text-3xl ml-10 font-bold tracking-tight text-gray-800 xl:text-4xl dark:text-white">
                      To Farmers
                   </h2>
-                  <p class="block max-w-2xl mt-4 text-xl text-black">
+                  <p class="block max-w-2xl mt-4 ml-12 text-xl text-black">
                      In order to create a sustainable future we are empowering farmers to sell their produce directly to leading retail outlets,  We leverage our purpose built technology and a compelling business model to
                      aggregate produce 
                      from farmers, deliver it 
                      to commercial kitchens across Africa by providing them with an efficient, fresh, 
                      healthy and cost effective way of purchasing their fruits and vegetables.
                   </p>
-                  <div class="mt-6 sm:-mx-2">
-                     <div class="inline-flex w-full mt-4 overflow-hidden rounded-lg shadow sm:w-auto sm:mx-2 sm:mt-0">
+                  <div class="mt-6  ml-10">
+                     <div class=" mt-4 ml-16 overflow-hidden rounded-lg shadow sm:w-auto sm:mx-2 sm:mt-0">
                         <a href="#patner" class="inline-flex items-center justify-center w-full px-5 py-3 text-base font-medium text-white transition-colors duration-150 transform sm:w-auto bg-gradient-to-r from-blue-700 to-blue-900 hover:from-blue-600 hover:to-blue-600">
                         <span class="mx-2">
                         Patner with us

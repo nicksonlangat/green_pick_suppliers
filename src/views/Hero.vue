@@ -30,7 +30,7 @@
       </section>
       <header class="relative flex items-center justify-center h-screen mb-12 overflow-hidden">
          <div
-            class="w-full h-full relative z-30 p-4 text-2xl text-white bg-grayj-50 bg-opacity-40 rounded-xl"
+            class="w-full h-full relative z-30 p-4 text-2xl text-white rounded-xl"
             >
             <h1 class="text-white text-5xl font-bold ml-48 mt-32">Taking your food business to the next 
                <br>
@@ -48,18 +48,12 @@
                Patner with us
             </a>
          </div>
-         <video
-            autoplay
-            loop
-            muted
+         <img
             class="absolute z-10 w-auto min-w-full min-h-full max-w-none"
+            src="../assets/grocery.png"
             >
-            <source
-               src="../assets/vid.mp4"
-               type="video/mp4"
-               />
-            Your browser does not support the video tag.
-         </video>
+            
+         
       </header>
       <section class="flex items-center justify-center  bg-white min-w-screen">
          <div class=" bg-white">
@@ -112,7 +106,7 @@
             </h2>
             <div class="container flex flex-col ml-2 items-center px-4 py-12 mx-auto xl:flex-row">
                <div class="flex justify-center xl:w-1/2 -ml-4">
-                  <img class="h-80 w-80 sm:w-[28rem] sm:h-[28rem] flex-shrink-0 object-cover" src="../assets/rest.jpg" alt="">
+                  <img class="h-80 w-80 sm:w-[28rem] sm:h-[28rem] flex-shrink-0 object-cover" src="../assets/restaurant_s.png" alt="">
                </div>
                <div class="flex flex-col items-center mt-6 xl:items-start xl:w-1/2 xl:mt-0">
                   <h2  id="restaurants" class="text-3xl font-bold tracking-tight text-gray-800 xl:text-4xl dark:text-white">
@@ -156,7 +150,7 @@
                   </div>
                </div>
                <div class="flex justify-center xl:w-1/2">
-                  <img class="h-80 w-80 sm:w-[28rem] sm:h-[28rem] flex-shrink-0 object-cover" src="../assets/farmer.jpg" alt="">
+                  <img class="h-80 w-80 sm:w-[28rem] sm:h-[28rem] flex-shrink-0 object-cover" src="../assets/farmers-image.png" alt="">
                </div>
             </div>
          </section>

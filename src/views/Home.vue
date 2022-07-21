@@ -106,11 +106,11 @@
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="flex items-center">
                     <div class="ml-4">
-                      <div v-if="!ord.is_fulfilled" class="text-sm  font-medium text-blue-500">
+                      <div v-if="ord.order_status=='Pending Approval'" class="text-sm  font-medium text-blue-500">
                         PENDING
                       </div>
                       <div v-else class="text-sm  font-medium text-green-500">
-                        DELIVERED
+                        APPROVED
                       </div>
                     </div>
                   </div>

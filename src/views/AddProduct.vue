@@ -108,7 +108,7 @@ export default {
         headers: { Authorization: `Token ${this.user.access_token}` }
     };
           return axios.get('https://api.greenpick.store/categories', config).then(res=>{
-              this.categories=res.data;
+              this.categories=res.data.results;
           })
       },
        onChange (event) {

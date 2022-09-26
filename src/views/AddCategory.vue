@@ -62,7 +62,10 @@ export default {
       
            
             formData.append('name', data.name)
+           if(this.imagesArray != null) {
             formData.append('category_image', this.imagesArray, this.imagesArray.name)
+           }
+           else {'no image'}
             console.log(formData)
             const config = {
         headers: { Authorization: `Token ${this.user.access_token}` }

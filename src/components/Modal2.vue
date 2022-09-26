@@ -30,7 +30,7 @@
 <div class="items-center -mx-2 md:flex">
                 <div class="relative w-full mx-2 mt-4 md:mt-0">
                     <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">Category name</label>
-                    <input type="text" v-model="category.name" class="block appearance-none w-full bg-white-200 border border-gray-500 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="Name">
+                    <input type="text" v-model="category.name" class="block appearance-none w-full bg-white-200 border border-gray-500 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" :placeholder="data.name">
        </div>
             </div>
             <br><br>
@@ -60,15 +60,49 @@
 </template>
 
 <script>
+    import axios from 'axios'
   export default {
     props: ['data'],
     data(){
         return {
+            user:null,
             category:{
             name:'',
         },
         imagesArray: null
         }
-    }
+    },
+    methods: {
+        onChange (event) {
+          this.imagesArray = event.target.files[0]
+        },
+        editCategory(){
+             const data ={
+                 name:this.category.name,
+                 category_image:null,   
+            }
+            const formData = new FormData()
+      
+           
+            formData.append('name', data.name)
+           if(this.imagesArray != null) {
+            formData.append('category_image', this.imagesArray, this.imagesArray.name)
+           }
+           else {'no image'}
+            console.log(formData)
+            const config = {
+        headers: { Authorization: `Token ${this.user.access_token}` }
+    };
+          axios.patch(`https://api.greenpick.store/categories/${this.data.id}/`, formData, config).then(res=>{
+              this.$emit('close')
+          }).catch(error=>{
+              console.log(error)
+          })
+      }
+
+    },
+    created(){
+      this.user =JSON.parse(localStorage.getItem('loggedUser'))
+  }
   };
 </script>

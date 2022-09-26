@@ -117,11 +117,11 @@
                   </p>
                   <div class="mt-6 sm:-mx-2">
                      <div class="inline-flex w-full mt-4 overflow-hidden rounded-lg shadow sm:w-auto sm:mx-2 sm:mt-0">
-                        <a href="#patner" class="inline-flex items-center justify-center w-full px-5 py-3 text-base font-medium text-white transition-colors duration-150 transform sm:w-auto bg-gradient-to-r from-blue-700 to-blue-900 hover:from-blue-600 hover:to-blue-600">
+                        <router-link to="/onboard" class="inline-flex items-center justify-center w-full px-5 py-3 text-base font-medium text-white transition-colors duration-150 transform sm:w-auto bg-gradient-to-r from-blue-700 to-blue-900 hover:from-blue-600 hover:to-blue-600">
                         <span class="mx-2">
                         Patner with us
                         </span> 
-                        </a>
+                        </router-link>
                      </div>
                   </div>
                </div>
@@ -156,31 +156,31 @@
          </section>
       </section>
       <div class="leading-loose ml-20">
-         <form id="patner" class="max-w-5xl m-4 mx-auto p-10 mt-4 bg-white rounded shadow"  >
+         <form id="patner" @submit.prevent="onBoard" class="max-w-5xl m-4 mx-auto p-10 mt-4 bg-white rounded shadow"  >
             <p class="text-blue-800 text-3xl font-bold uppercase">Patner with us</p>
             <br>
             <div>
                <label class="block font-bold" >Name</label>
-               <input  class="w-full rounded-md peer pl-12 pr-2 py-2 text-gray-900 border-2 border-gray-500 bg-white placeholder-gray-900" type="text"  placeholder="Enter Full Name" >
+               <input v-model="user_data.name"  class="w-full rounded-md peer pl-12 pr-2 py-2 text-gray-900 border-2 border-gray-500 bg-white placeholder-gray-900" type="text"  placeholder="Enter Full Name" >
             </div>
             <div class="inline-block mt-2 w-1/2 pr-1">
                <label class="hidden block text-sm text-gray-600" >Email</label>
-               <input   class="w-full rounded-md peer pl-12 pr-2 py-2 text-gray-900 border-2 border-gray-500 bg-white placeholder-gray-900"  type="text"  placeholder="Enter Email Address">
+               <input v-model="user_data.email"  class="w-full rounded-md peer pl-12 pr-2 py-2 text-gray-900 border-2 border-gray-500 bg-white placeholder-gray-900"  type="text"  placeholder="Enter Email Address">
             </div>
             <div class="inline-block mt-2 -mx-1 pl-1 w-1/2">
                <label class="hidden block text-sm text-white" >Phone Number</label>
-               <input class="w-full rounded-md peer pl-12 pr-2 py-2 text-gray-900 border-2 border-gray-500 bg-white placeholder-gray-900" type="text"    placeholder="Enter Phone Number" >
+               <input v-model="user_data.phone_number" class="w-full rounded-md peer pl-12 pr-2 py-2 text-gray-900 border-2 border-gray-500 bg-white placeholder-gray-900" type="text"    placeholder="Enter Phone Number" >
             </div>
             <div class="mt-2">
                <label class="block font-bold  text-[#E7BB7EB3]" >Patner as</label>
                <select  class="w-full rounded-md peer pl-12 pr-2 py-2 text-gray-900 border-2 border-gray-500 bg-white placeholder-gray-900" type="email"  placeholder="Your Email" >
-                  <option value="">Farmer</option>
-                  <option value="">Restaurant</option>
+                  <option selected value="Supplier">Farmer(Supplier)</option>
+                  <!-- <option value="">Restaurant</option> -->
                </select>
             </div>
             <div class="mt-2">
                <label class="block font-bold" >Briefly explain why you would like to patner with us</label>
-               <textarea rows="5"  class="w-full rounded-md peer pl-12 pr-2 py-2 text-gray-900 border-2 border-gray-500 bg-white placeholder-gray-900"></textarea>
+               <textarea rows="5" placeholder="Optional"  class="w-full rounded-md peer pl-12 pr-2 py-2 text-gray-900 border-2 border-gray-500 bg-white placeholder-gray-900"></textarea>
             </div>
             <div class="mt-4 mx-auto">
                <button class="px-4 py-1 w-48 text-white font-light tracking-wider bg-blue-800 rounded" type="submit">Submit</button>
@@ -229,6 +229,53 @@
       </section>
    </div>
 </template>
+<script>
+   import Navigation from '@/components/Navigation.vue'
+   import axios from 'axios'
+   import moment from 'moment'
+   export default {
+     components:{Navigation},
+     data(){
+       return{
+         user_data:{
+           "name":"",
+           "email":"",
+           "phone_number":"",
+           "password":"",
+           "is_superuser":false,
+           "role":"",
+            "rest_name":"",
+            "rest_address":"",
+            "rest_cover_image":null,
+         },
+         user:null,
+        
+         isSuperuser:true,
+         imagesArray: null
+       }
+     },
+     methods:{
+       onBoard(){
+         console.log(this.user_data)
+         const data = {
+           "name":this.user_data.name,
+           "email":this.user_data.email,
+           "phone_number":this.user_data.phone_number,
+           "password":Math.random().toString(36).slice(-8),
+           "role":"Supplier",
+           "is_superuser":this.user_data.is_superuser,
+           "restaurant_branch":null,
+         }
+         axios.post('https://api.greenpick.store/accounts/register',data).then(res=>{
+                             console.log(res)
+                             this.$router.push({ name: "Login"})
+                           }).catch(error=>{
+                             console.log(error)
+                           })
+       },
+     },
+   }
+   </script>
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 

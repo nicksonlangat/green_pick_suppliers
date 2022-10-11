@@ -27,7 +27,7 @@
       <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
         <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
           <table class="min-w-full divide-y divide-gray-200">
-            <modal2 v-if="modalVisible" @close="modalVisible = false" :data="modalData"/>
+            <modal3 v-if="modalVisible" @close="modalVisible = false" :data="modalData"/>
             <thead class="bg-white">
               <tr>
                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
@@ -144,10 +144,10 @@
 </template>
 <script>
 import Navigation from '@/components/Navigation.vue'
-import Modal2 from '@/components/Modal2.vue'
+import Modal3 from '@/components/Modal3.vue' 
 import axios from 'axios'
 export default {
-  components:{Navigation, Modal2},
+  components:{Navigation, Modal3},
   data(){
     return{
         name:'',

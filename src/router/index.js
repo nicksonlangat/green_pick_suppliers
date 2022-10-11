@@ -11,6 +11,7 @@ import Products from '../views/Products.vue'
 import Restaurants from '../views/Restaurants.vue'
 import Categories from '../views/Categories.vue'
 import AddCategory from '../views/AddCategory.vue'
+import Users from '../views/Users.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -53,6 +54,11 @@ const routes = [
     path: '/products',
     name: 'Products',
     component: Products
+  },
+  {
+    path: '/users',
+    name: 'Users',
+    component: Users
   },
   {
     path: '/categories',

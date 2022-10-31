@@ -28,7 +28,7 @@
             </div>
          </div>
       </section>
-      <header class="relative flex items-center justify-center h-screen mb-12 overflow-hidden">
+      <header class="relative bg-blue-900 flex items-center justify-center h-screen mb-12 overflow-hidden">
          <div
             class="w-full h-full relative z-30 p-4 text-2xl text-white rounded-xl"
             >

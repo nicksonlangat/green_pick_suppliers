@@ -84,8 +84,8 @@
             </div>
             <!-- Modal footer -->
             <div class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
-                <button  type="button" class="text-white bg-green-500 hover:bg-green-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded text-sm px-5 py-2.5 text-center ">Mark Delivered</button>
-               <button  type="button" class="text-white bg-red-500 hover:bg-red-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded text-sm px-5 py-2.5 text-center ">Mark Rejected</button>
+                <button @click="markDelivered(data.id)" type="button" class="text-white bg-green-500 hover:bg-green-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded text-sm px-5 py-2.5 text-center ">Mark Delivered</button>
+               <button @click="markRejected(data.id)" type="button" class="text-white bg-red-500 hover:bg-red-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded text-sm px-5 py-2.5 text-center ">Mark Rejected</button>
             </div>
         </div>
     </div>
@@ -95,7 +95,32 @@
 </template>
 
 <script>
+import axios from 'axios'
   export default {
-    props: ['data']
+    props: ['data'],
+
+    methods:{
+        markDelivered(id){
+      axios.patch(`https://api.greenpick.store/orders/${id}/`,
+        {
+        "order_status": "Approved"
+  }).then(res=>{
+    this.$emit('close')
+        }).catch(error=>{
+          console.log(error)
+        })
+        },
+        markRejected(id){
+      axios.patch(`https://api.greenpick.store/orders/${id}/`,
+        {
+        "order_status": "Declined"
+  }).then(res=>{
+    this.$emit('close')
+        }).catch(error=>{
+          console.log(error)
+        })
+        }
+        
+    }
   };
 </script>

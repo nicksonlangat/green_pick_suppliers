@@ -109,8 +109,11 @@
                       <div v-if="ord.order_status=='Pending Approval'" class="text-sm  font-medium text-blue-500">
                         PENDING
                       </div>
-                      <div v-else class="text-sm  font-medium text-green-500">
-                        APPROVED
+                      <div v-if="ord.order_status=='Declined'" class="text-sm  font-medium text-red-500">
+                        DECLINED
+                      </div>
+                      <div v-if="ord.order_status=='Approved'" class="text-sm  font-medium text-green-500">
+                        DELIVERED
                       </div>
                     </div>
                   </div>

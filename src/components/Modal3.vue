@@ -36,6 +36,13 @@
             <br><br>
             <div class="items-center -mx-2 md:flex">
                 <div class="relative w-full mx-2 mt-4 md:mt-0">
+                    <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">Product price</label>
+                    <input type="text" v-model="category.price" class="block appearance-none w-full bg-white-200 border border-gray-500 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" :placeholder="data.price">
+       </div>
+            </div>
+            <br><br>
+            <div class="items-center -mx-2 md:flex">
+                <div class="relative w-full mx-2 mt-4 md:mt-0">
                     <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">Product image</label>
                     <input name="imagesArray" @change="onChange" type="file"  class="block appearance-none w-full bg-white-200 border border-gray-500 text-gray-700 py-3 px-6 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
        </div>
@@ -68,6 +75,7 @@
             user:null,
             category:{
             name:'',
+            price:''
         },
         imagesArray: null
         }

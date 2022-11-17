@@ -87,12 +87,22 @@
         editCategory(){
              const data ={
                  name:this.category.name,
-                 category_image:null,   
+                 category_image:null,
+                 price:this.category.price 
             }
+            console.log(data)
             const formData = new FormData()
       
            
+           
+            if(this.category.price !='') {
+           
+            formData.append('price', data.price)
+           }
+           if(this.category.name !='') {
             formData.append('name', data.name)
+           
+           }
            if(this.imagesArray != null) {
             formData.append('product_image', this.imagesArray, this.imagesArray.name)
            }

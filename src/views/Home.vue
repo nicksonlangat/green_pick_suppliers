@@ -76,7 +76,10 @@
                  ORDER TOTAL
                 </th>
                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
-                  DELIVERY STATUS
+                  ORDER STATUS
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
+                  DELIVERED
                 </th>
                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
                   ACTION
@@ -113,8 +116,22 @@
                         DECLINED
                       </div>
                       <div v-if="ord.order_status=='Approved'" class="text-sm  font-medium text-green-500">
-                        DELIVERED
+                        APPROVED
                       </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="flex items-center">
+                    <div class="ml-4">
+                      <div v-if="ord.is_fulfilled" class="text-sm  font-medium text-green-500">
+                        YES
+                      </div>
+
+                      <div v-else  class="text-sm  font-medium text-red-500">
+                        NO
+                      </div>
+                     
                     </div>
                   </div>
                 </td>

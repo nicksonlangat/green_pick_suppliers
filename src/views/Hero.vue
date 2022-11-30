@@ -32,7 +32,8 @@
          <div
             class="w-full h-full relative z-30 p-4 text-2xl text-white rounded-xl"
             >
-            <h1 class="text-white text-5xl font-bold ml-48 mt-32">Taking your food business to the next 
+            <div class="responsive">
+               <h1 class="text-white text-5xl sm:text-2xl font-bold ml-48 mt-32">Taking your food business to the next 
                <br>
                level.
             </h1>
@@ -47,6 +48,7 @@
             <a href="#patner" class="inline-flex mt-20 items-center justify-center ml-48 px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-blue-700 w-48 border border-transparent rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600">
                Patner with us
             </a>
+            </div>
          </div>
          <img
             class="absolute z-10 w-auto min-w-full min-h-full max-w-none"

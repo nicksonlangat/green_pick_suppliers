@@ -12,6 +12,7 @@ import Restaurants from '../views/Restaurants.vue'
 import Categories from '../views/Categories.vue'
 import AddCategory from '../views/AddCategory.vue'
 import Users from '../views/Users.vue'
+import Portal from '../views/Portal.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -64,6 +65,11 @@ const routes = [
     path: '/categories',
     name: 'categories',
     component: Categories
+  },
+  {
+    path: '/suppliers',
+    name: 'suppliers',
+    component: Portal
   },
   {
     path: '/restaurants',

@@ -26,25 +26,17 @@
                 <div class="items-center lg:flex">
                     <div class="flex flex-col mt-4 space-y-8 lg:flex-row lg:items-center lg:mt-0 lg:space-y-0 lg:space-x-16">
                         <!-- <a class="block font-medium text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 hover:underline" href="#">MY TICKETS</a> -->
-                        <router-link v-if="loggedIn" class="block font-medium bg-gray-200 rounded shadow px-2 text-blue-900 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 hover:underline" to="/users">USERS</router-link> 
-                        <router-link v-if="loggedIn" class="block font-medium bg-gray-200 rounded shadow px-2 text-blue-900 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 hover:underline" to="/orders">ORDERS</router-link> 
-                        <router-link v-if="loggedIn" class="block font-medium  bg-gray-200 rounded shadow px-2 text-blue-900 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 hover:underline" to="/products">PRODUCTS</router-link> 
-                        <router-link v-if="loggedIn" class="block font-medium  bg-gray-200 rounded shadow px-2 text-blue-900 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 hover:underline" to="/categories">CATEGORIES</router-link> 
-                        <router-link v-if="loggedIn" class="block font-medium  bg-gray-200 rounded shadow px-2 text-blue-900 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 hover:underline" to="/suppliers">SUPPLIERS</router-link> 
-                        
                        
-                        <router-link v-if="loggedIn" class="block font-medium  bg-gray-200 rounded shadow px-2 text-blue-900 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 hover:underline" to="/restaurants">RESTAURANTS</router-link> 
-                        
- <router-link v-if="loggedIn" class="block font-medium  bg-gray-200 rounded shadow px-2 text-blue-900 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 hover:underline" to="/onboard">NEW RESTAURANT</router-link> 
+                        <router-link v-if="loggedIn" class="block font-medium bg-gray-200 rounded shadow px-2 text-blue-900 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 hover:underline" to="/suppliers">MY ORDERS</router-link>
 <router-link  v-if="!loggedIn" class="font-medium text-gray-700 dark:text-gray-200 hover:underline" to="/login"> 
  <button class="flex items-center px-5 py-2 text-sm font-medium tracking-wide text-center text-white capitalize transition-colors duration-200 transform bg-blue-900 rounded-lg hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
-                          Login
-                        </button>
+    Login
+ </button>
 </router-link> 
 
- <button v-if="loggedIn" @click="logout" class="flex items-center px-5 py-2 text-sm font-medium tracking-wide text-center text-white capitalize transition-colors duration-200 transform bg-blue-900 rounded-lg hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
-                          Logout
-                        </button>
+<button v-if="loggedIn" @click="logout" class="flex items-center px-5 py-2 text-sm font-medium tracking-wide text-center text-white capitalize transition-colors duration-200 transform bg-blue-900 rounded-lg hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
+    Logout
+</button>
             
                        
                     </div>
@@ -69,9 +61,9 @@ export default {
     },
     created(){
         const user = JSON.parse(localStorage.getItem('loggedUser'));
-        console.log(user.user.is_superuser)
+        console.log(user.user)
 
-        if(!user.user.is_superuser){
+        if(!user.user.is_superuser && user.user.role!="Supplier"){
             this.$router.push({ name: "Login"})
         }
         if(localStorage.getItem('loggedUser')!=null){
